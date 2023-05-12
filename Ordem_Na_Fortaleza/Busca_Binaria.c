@@ -36,19 +36,11 @@ int buscaBinaria(int array[], int quantidade, int valor) {
     }
     
     if (valor > array[quantidade/2]){
-        int novoArray[quantidade/2];
-        int j = 0;
-        for (int i = quantidade/2+1; i < quantidade; i++){
-            novoArray[j] = array[i];
-            j++;
-        }
-        buscaBinaria(novoArray, quantidade/2, valor);
+        int novo_index = quantidade/2 + 1;
+        buscaBinaria(array + novo_index, novo_index, valor);
     }
     else{
-        int novoArray[quantidade/2];
-        for (int i = 0; i < quantidade/2; i++)
-            novoArray[i] = array[i];
-        buscaBinaria(novoArray, quantidade/2, valor);
+        buscaBinaria(array, quantidade - quantidade/2, valor);
     }
 }
 
